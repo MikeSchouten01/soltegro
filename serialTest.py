@@ -9,5 +9,5 @@ ser.open()
 msg = 'test'
 counter = 0
 while True:
-    x = ser.readline()
-    print(type(x))
+    x = ser.readline().decode('utf-8')
+    print(x)
