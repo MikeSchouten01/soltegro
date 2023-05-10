@@ -9,5 +9,5 @@ ser.open()
 msg = 'test'
 counter = 0
 while True:
-    x=ser.readline()
+    x = ser.read()
     print(x)
