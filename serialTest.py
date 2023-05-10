@@ -1,11 +1,14 @@
 import serial
 
-if __name__ == '__main__':
-    ser = serial.Serial(port = "/dev/ttyS0",baudrate = 9600,parity = serial.PARITY_NONE,stopbits = serial.STOPBITS_ONE,bytesize = serial.EIGHTBITS,timeout = 1)  
+ser = serial.Serial()
+ser.port = '/dev/ttyAMA0'
+ser.baudrate = 9600
+ser.timeout = 60  # 1 min
+ser.open()
 
-    try:
-        while True:
-            line = ser.readline()
-            print(line)
-    except KeyboardInterrupt:
-        pass # do cleanup here
+msg = ''
+while True:
+    char = ser.read(1)  # 1 byte
+    msg = msg+char.decode('utf-8')
+    if char == b'\r':
+        break
