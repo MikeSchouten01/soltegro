@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     try:
         while True:
-            line = test.readline(eol='\\0')
+            line = test.readline()
             print(line)
     except KeyboardInterrupt:
         pass # do cleanup here
