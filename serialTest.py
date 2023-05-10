@@ -1,9 +1,12 @@
 import serial
 
 if __name__ == '__main__':
-    ser = serial.Serial('/dev/ttyAMA0', 9600, timeout=1)
-    ser.reset_input_buffer()
-    while True:
-        if ser.in_waiting > 0:
-            line = ser.readline().decode('utf-8').rstrip()
+    test=serial.Serial("/dev/ttyAMA0",9600)
+    test.open()
+
+    try:
+        while True:
+            line = test.readline(eol='\\0')
             print(line)
+    except KeyboardInterrupt:
+        pass # do cleanup here
