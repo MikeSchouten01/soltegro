@@ -1,5 +1,5 @@
 import serial
-
+import time
 ser = serial.Serial()
 ser.port = '/dev/ttyAMA0'
 ser.baudrate = 9600
@@ -7,9 +7,10 @@ ser.timeout = 60  # 1 min
 ser.open()
 
 msg = ''
+counter = 0
 while True:
-    char = ser.read(1)  # 1 byte
-    msg = msg+char.decode('utf-8')
-    print(msg)
-    if char == b'\0':
-        break
+    ser.write("Write counter: %d \n"%(counter))
+    x=ser.readline()
+    print(x)
+    time.sleep(1)
+    counter += 1
