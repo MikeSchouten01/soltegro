@@ -1,7 +1,7 @@
 import serial
 import time
 ser = serial.Serial()
-ser.port = '/dev/ttyAMA0'
+ser.port = '/dev/ttyS0'
 ser.baudrate = 9600
 ser.timeout = 60  # 1 min
 ser.open()
