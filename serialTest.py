@@ -6,10 +6,10 @@ ser.baudrate = 9600
 ser.timeout = 60  # 1 min
 ser.open()
 
-msg = ''
+msg = 'test'
 counter = 0
 while True:
-    ser.write("Test")
+    ser.write(msg.encode())
     x=ser.readline()
     print(x)
     time.sleep(1)
