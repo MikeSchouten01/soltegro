@@ -9,7 +9,7 @@ ser.open()
 msg = ''
 while True:
     char = ser.read(1)  # 1 byte
-    msg = msg+char.decode('utf-8')
+    msg = msg+char
     print(msg)
     if char == b'\0':
         break
