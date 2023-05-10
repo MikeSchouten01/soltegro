@@ -10,5 +10,6 @@ msg = ''
 while True:
     char = ser.read(1)  # 1 byte
     msg = msg+char.decode('utf-8')
-    if char == b'\r':
+    print(msg)
+    if char == b'\0':
         break
