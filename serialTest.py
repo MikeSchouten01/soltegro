@@ -1,12 +1,11 @@
 import serial
 
 if __name__ == '__main__':
-    test=serial.Serial("/dev/ttyAMA0",9600)
-    test.open()
+    ser = serial.Serial(port = "/dev/ttyS0",baudrate = 9600,parity = serial.PARITY_NONE,stopbits = serial.STOPBITS_ONE,bytesize = serial.EIGHTBITS,timeout = 1)  
 
     try:
         while True:
-            line = test.readline()
+            line = ser.readline()
             print(line)
     except KeyboardInterrupt:
         pass # do cleanup here
