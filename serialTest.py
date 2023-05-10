@@ -12,4 +12,4 @@ while True:
     print(ser.in_waiting)
     # x = ser.readline().decode('utf-8')
 
-    print(x)
+    # print(x)
