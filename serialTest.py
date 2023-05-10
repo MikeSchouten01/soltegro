@@ -10,4 +10,4 @@ msg = 'test'
 counter = 0
 while True:
     x = ser.readline()
-    print(x)
+    print(type(x))
