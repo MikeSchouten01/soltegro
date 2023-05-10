@@ -9,7 +9,7 @@ ser.open()
 msg = ''
 counter = 0
 while True:
-    ser.write("Write counter: %d \n"%(counter))
+    ser.write("Test")
     x=ser.readline()
     print(x)
     time.sleep(1)
