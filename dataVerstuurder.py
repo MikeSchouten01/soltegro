@@ -21,13 +21,15 @@ def receiveData(c):
         print_lock.release()
         return
     dataString = data.decode('utf8')
+    print('- ' * 20)
+    print("Received from TCP socket: ")
     printJson(dataString)
     print_lock.release()
     # connection closed
     c.close()
  
 def printJson(input):
-    print('- ' * 20)
+    
     jsonData = json.loads(input)
     jsonString = json.dumps(jsonData, indent=4, sort_keys=True)
     print(jsonString)
@@ -35,7 +37,8 @@ def printJson(input):
 def checkSerial():
     while True:
         if ser.in_waiting > 0:
-            print("test")
+            print('- ' * 20)
+            print("Received from Serial: ")
             dataString = ser.readline().decode('utf-8')
             printJson(dataString)
 
@@ -53,7 +56,6 @@ def Main():
         c, addr = s.accept()
         print_lock.acquire() 
         start_new_thread(receiveData, (c,))
- 
  
 if __name__ == '__main__':
     Main()
