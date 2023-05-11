@@ -15,7 +15,10 @@ ser.open()
 
 # thread function
 def receiveData(c):
-    data = c.recv(1024)
+    try:
+        data = c.recv(1024)
+    except:
+        print("error in c.recv()")
     if not data:
         print('Bye')
         print_lock.release()
@@ -39,7 +42,10 @@ def checkSerial():
         if ser.in_waiting > 0:
             print('- ' * 20)
             print("Received from Serial: ")
-            dataString = ser.readline().decode('utf-8')
+            try:
+                dataString = ser.readline().decode('utf-8')
+            except:
+                print("error in ser.readline().decode()")
             printJson(dataString)
 
 def Main():
