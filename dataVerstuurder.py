@@ -14,21 +14,21 @@ ser.timeout = 60  # 1 min
 ser.open()
 
 # thread function
-# def threaded(c):
+def threaded(c):
     
  
-#         # data received from client
-#     data = c.recv(1024)
-#     if not data:
-#         print('Bye')
-#         # lock released on exit
-#         print_lock.release()
-#         return
-#     my_json = data.decode('utf8')
-#     printJson(my_json)
-#     print_lock.release()
-#     # connection closed
-#     c.close()
+        # data received from client
+    data = c.recv(1024)
+    if not data:
+        print('Bye')
+        # lock released on exit
+        print_lock.release()
+        return
+    my_json = data.decode('utf8')
+    printJson(my_json)
+    print_lock.release()
+    # connection closed
+    c.close()
  
 def printJson(input):
     print('- ' * 20)
