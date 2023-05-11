@@ -42,14 +42,14 @@ def Main():
     # reserve a port on your computer
     # in our case it is 12345 but it
     # can be anything
-    # port = 12345
-    # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # s.bind((host, port))
-    # print("socket binded to port", port)
+    port = 12345
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind((host, port))
+    print("socket binded to port", port)
  
-    # # put the socket into listening mode
-    # s.listen(5)
-    # print("socket is listening")
+    # put the socket into listening mode
+    s.listen(5)
+    print("socket is listening")
  
     # a forever loop until client wants to exit
     while True:
