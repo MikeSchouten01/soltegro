@@ -36,7 +36,7 @@ def printJson(input):
     s = json.dumps(data, indent=4, sort_keys=True)
     print(s)
 
-def checkSerial():
+def checkSerial(test):
     while True:
         if ser.in_waiting > 0:
             print("test")
@@ -49,7 +49,7 @@ def Main():
     # reserve a port on your computer
     # in our case it is 12345 but it
     # can be anything
-    start_new_thread(checkSerial)
+    start_new_thread(checkSerial, ())
     port = 12345
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((host, port))
