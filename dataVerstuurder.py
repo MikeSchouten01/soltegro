@@ -36,7 +36,7 @@ def printJson(input):
     s = json.dumps(data, indent=4, sort_keys=True)
     print(s)
 
-def checkSerial(test):
+def checkSerial():
     while True:
         if ser.in_waiting > 0:
             print("test")
