@@ -58,12 +58,12 @@ def Main():
             x = ser.readline().decode('utf-8')
             printJson(x)
         # establish connection with client
-        # c, addr = s.accept()
+        c, addr = s.accept()
  
-        # # lock acquired by client
-        # print_lock.acquire() 
-        # # Start a new thread and return its identifier
-        # start_new_thread(threaded, (c,))
+        # lock acquired by client
+        print_lock.acquire() 
+        # Start a new thread and return its identifier
+        start_new_thread(threaded, (c,))
     s.close()
  
  
