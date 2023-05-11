@@ -19,7 +19,6 @@ def threaded(c):
         print_lock.release()
         return
     my_json = data.decode('utf8')
-    print(my_json)
     print('- ' * 20)
     # Load the JSON to a Python list & dump it back out as formatted JSON
     data = json.loads(my_json)
@@ -52,9 +51,7 @@ def Main():
         c, addr = s.accept()
  
         # lock acquired by client
-        print_lock.acquire()
-        print('Connected to :', addr[0], ':', addr[1])
- 
+        print_lock.acquire() 
         # Start a new thread and return its identifier
         start_new_thread(threaded, (c,))
     s.close()
