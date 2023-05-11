@@ -1,12 +1,18 @@
 # import socket programming library
 import socket
 import json
-# import thread module
+import serial
 from _thread import *
 import threading
  
 print_lock = threading.Lock()
- 
+
+ser = serial.Serial()
+ser.port = '/dev/ttyS0'
+ser.baudrate = 9600
+ser.timeout = 60  # 1 min
+ser.open()
+
 # thread function
 def threaded(c):
     
@@ -19,16 +25,17 @@ def threaded(c):
         print_lock.release()
         return
     my_json = data.decode('utf8')
-    print('- ' * 20)
-    # Load the JSON to a Python list & dump it back out as formatted JSON
-    data = json.loads(my_json)
-    s = json.dumps(data, indent=4, sort_keys=True)
-    print(s)
+    printJson(my_json)
     print_lock.release()
     # connection closed
     c.close()
  
- 
+def printJson(input):
+    print('- ' * 20)
+    data = json.loads(input)
+    s = json.dumps(data, indent=4, sort_keys=True)
+    print(s)
+
 def Main():
     host = ""
  
@@ -46,7 +53,9 @@ def Main():
  
     # a forever loop until client wants to exit
     while True:
- 
+        if ser.in_waiting > 0:
+            x = ser.readline().decode('utf-8')
+            printJson(x)
         # establish connection with client
         c, addr = s.accept()
  
