@@ -54,6 +54,7 @@ def Main():
     # a forever loop until client wants to exit
     while True:
         if ser.in_waiting > 0:
+            print("test")
             x = ser.readline().decode('utf-8')
             printJson(x)
         # establish connection with client
