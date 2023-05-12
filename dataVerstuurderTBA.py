@@ -70,9 +70,9 @@ def printJson(input):
                 "Tag": sixteenBitItem[0],
                 "Timestamp": Timestamp,
                 "Value": {
-                    "IntegerValue": None,
+                    "IntegerValue": sixteenBitItem[1],
                     "DoubleValue": None,
-                    "BoolValue": sixteenBitItem[1],
+                    "BoolValue": None,
                     "StartOrEnd": None,
                     "BytesValue": None,
                     "Duration": None,
