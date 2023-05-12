@@ -81,7 +81,7 @@ def printJson(input):
                     "Type": 4
             }
         }
-    jsonString = json.dumps(jsonData, indent=4, sort_keys=True)
+    jsonString = json.dumps(message, indent=4, sort_keys=True)
     message = json.dumps(message, ensure_ascii=False).encode('utf8')
     print(jsonString)
     device_client.send_message(message)
