@@ -78,7 +78,7 @@ def printJson(input):
                     "Duration": None,
                     "StringValue": None,
                     "TimeStampValue": TimeStampValue,
-                    "Type": 4
+                    "Type": 2
             }
         }
     jsonString = json.dumps(message, indent=4, sort_keys=True)
