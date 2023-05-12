@@ -83,6 +83,7 @@ def printJson(input):
         }
     jsonString = json.dumps(jsonData, indent=4, sort_keys=True)
     print(jsonString)
+    device_client.send_message(message)
 
 def checkSerial():
     while True:
