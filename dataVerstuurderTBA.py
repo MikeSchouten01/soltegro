@@ -65,26 +65,30 @@ def printJson(input):
                     "Type": 4
                 }
         }
-        for sixteenBitItem in sixteenBitItems:
-            message = {
-                "Tag": sixteenBitItem[0],
-                "Timestamp": Timestamp,
-                "Value": {
-                    "IntegerValue": sixteenBitItem[1],
-                    "DoubleValue": None,
-                    "BoolValue": None,
-                    "StartOrEnd": None,
-                    "BytesValue": None,
-                    "Duration": None,
-                    "StringValue": None,
-                    "TimeStampValue": TimeStampValue,
-                    "Type": 2
-            }
+        jsonString = json.dumps(message, indent=4, sort_keys=True)
+        message = json.dumps(message, ensure_ascii=False).encode('utf8')
+        print(jsonString)
+        device_client.send_message(message)
+    for sixteenBitItem in sixteenBitItems:
+        message = {
+            "Tag": sixteenBitItem[0],
+            "Timestamp": Timestamp,
+            "Value": {
+                "IntegerValue": sixteenBitItem[1],
+                "DoubleValue": None,
+                "BoolValue": None,
+                "StartOrEnd": None,
+                "BytesValue": None,
+                "Duration": None,
+                "StringValue": None,
+                "TimeStampValue": TimeStampValue,
+                "Type": 2
         }
-    jsonString = json.dumps(message, indent=4, sort_keys=True)
-    message = json.dumps(message, ensure_ascii=False).encode('utf8')
-    print(jsonString)
-    device_client.send_message(message)
+    }
+        jsonString = json.dumps(message, indent=4, sort_keys=True)
+        message = json.dumps(message, ensure_ascii=False).encode('utf8')
+        print(jsonString)
+        device_client.send_message(message)
 
 def checkSerial():
     while True:
